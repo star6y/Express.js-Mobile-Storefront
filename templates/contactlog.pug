@@ -1,0 +1,44 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Unfulfilled Orders
+  link#stylesheet(rel='stylesheet', href='/css/main.css')
+  script(defer='', src='/js/main.js')
+  script(defer='', src='/js/table.js')
+
+include navigation.pug
+span#sale
+
+#set-sale-div
+  p#set-sale Set sale
+  label Sale description:
+  input#sale-content(type='text', name='sale-content')
+  #buttons
+    button#sale-start Set
+    button#sale-end Delete
+h1 Unfulfilled Orders
+span#confirmationSale
+span#confirmationRowDel
+.table
+  table
+    tr
+      th Name
+      th Email
+      th Delivery Date
+      th Promised to deliver in
+      th Phone
+      th Ship with Case
+      th Delete Row
+    each contact in contacts 
+        tr(id="row" class=`${contact.ID}`)
+            td= contact.name
+            td
+                a(href=`mailto:${contact.email}`)= contact.email
+            td#date= contact.delivery_date
+            td#timeTill
+            td= contact.phone_model
+            td= contact.case
+            td
+                button#delete Delete
+
+//- {"ID" : 2, "name" : "Suleyman", "email" : "suley@boston.com", "delivery_date" : "2023-11-10", "phone_model" : "Pixel 8", "case" : "Yes"}

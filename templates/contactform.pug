@@ -1,0 +1,51 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Order a phone
+  link#stylesheet(rel='stylesheet', href='/css/main.css')
+  script(defer='', src='/js/main.js')
+  script(defer='', src='/js/contact.js')
+
+include navigation.pug
+
+// <span id="sale"></span>
+h1 Order a phone
+form(action='/contact', method='post')
+  p
+    label(for='name') Name:
+    input#name(type='text', name='name', required='')
+  p
+    label(for='email') Email:
+    input#email(type='email', name='email', required='')
+  //
+    <p>
+    <label for="address">Address:</label>
+    <input type="text" name="address" id="address" required>
+    </p>
+  p
+    | When do you want your phone to arrive
+    br
+    label(for='delivery_date') Purchased on:
+    input#delivery_date(type='date', name='delivery_date', min='2023-11-15', max='2024-12-24', required='')
+  p
+    | What phone do you want to purchase?
+    br
+    label(for='phone_model')
+    select#phone_model(name='phone_model', required='')
+      option(value='') Select an Option
+      // Saw this on W3 schools
+      option(value='iPhone 15 Pro Max') iPhone 15 Pro Max
+      option(value='iPhone 15') iPhone 15
+      option(value='S23 Ultra') S23 Ultra
+      option(value='S23+') S23+
+      option(value='OnePlus 12 5G') OnePlus 12 5G
+      option(value='Pixel 8') Pixel 8
+  p
+    | Do you want a phone case included with your order? 
+    br
+    input#case(type='checkbox', name='case')
+    label(for='case') I want a case
+    br
+  p#pay
+  p
+    input#order(type='submit', value='Place Order', name='order')

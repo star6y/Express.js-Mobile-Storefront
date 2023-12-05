@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Pirata+One');
+body {
+    display: flex;
+    margin: 0px;
+    padding:0px;
+    flex-direction: column;
+    min-height: 100vh;
+    /* min-width: 100vw;  */
+    background-image: linear-gradient(to bottom right, rgb(76, 212, 240), rgb(240, 212, 76));
+    overflow: auto;
+}
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Pirata One';
+    margin: 0%;
+    padding: 2%;
+}
+h2 {
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+}
+em {
+    color: rgb(255, 43, 43);
+}
+strong {
+    color: rgb(70, 85, 220);
+}
+.nav_links ul {
+    background-color: rgb(231, 109, 78);
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav_links li {
+    text-align: center;
+}
+li > a {
+    display: block;
+    padding: 10px;
+    color: black;
+} 
+li > button {
+    margin-top: 15%;
+    text-align: center;
+}
+li > a:hover {
+    background-color:rgb(255, 172, 149);
+    border-radius: 30px;
+}
+/*  server  */
+img {
+    border-radius: 30px;
+    transform: scale(.75);
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.pageContent {
+    background-color: rgb(225, 220, 228);
+    border-radius: 30px;
+    padding: 4%;
+    margin-bottom: 4%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+form {
+    background-color: rgb(225, 220, 228);
+    border-radius: 30px;
+    padding: 4%;
+    margin: auto;
+    margin-bottom: 4%;
+    margin-top: 1%;
+}
+div.pageContent > iframe {
+    display: flex;
+    margin: 10%;
+    margin-bottom: 3%;
+    justify-content: center;
+    align-content: center;
+}
+iframe {
+    display: block;
+    width: 80%;
+    height: 25vh; 
+}
+
+p.confirmation {
+    text-align: center;
+    font-weight: bold;
+}
+/*  SALE  */
+span#confirmationSale {
+    visibility: hidden;
+    background-color: rgb(105, 109, 233);
+    border-style: solid;
+    border-width: 2px;
+    /* border-color */
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    text-align: center;
+}
+span#sale {
+    background-color: rgb(148, 78, 192);
+    border-radius: 10px;
+    padding-left: 4%;
+    padding-right: 4%;
+    /* padding-bottom: 4%; */
+    margin-top: 3%;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    text-align: center;
+}
+div#set-sale-div {
+    background-color: rgb(225, 220, 228);
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+   
+    margin: auto; 
+    margin-top:2%;
+    margin-bottom:2%;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+}
+p#set-sale {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+div#buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 3%;
+}
+/* Reviews */
+div.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+div.review {
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: 40px;
+    border-color: rgb(79, 152, 152);
+    width: calc(46%);
+    padding: 2%;
+    margin: 2% ;
+}
+p.reviewer-name {
+    display: block;
+    justify-content: start;
+    text-align: right;
+} 
+/* Table */
+span#confirmationRowDel {
+    visibility: hidden;
+    background-color: rgb(105, 109, 233);
+    border-style: solid;
+    border-width: 2px;
+    /* border-color */
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    text-align: center;
+}
+table {
+    margin: auto;
+    background-color: rgb(207, 207, 251);
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 7px;
+}
+td > button {
+    justify-content: center;
+}
+td > a {
+    color: black;
+}
+tr:nth-child(even) {
+    background-color: rgb(235, 215, 215);
+}

@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Reviews
+  link#stylesheet(rel='stylesheet', href='/css/main.css')
+  script(defer='', src='/js/main.js')
+  // <script defer src="/js/sale.js"></script>
+
+include navigation.pug
+
+// <span id="sale"></span>
+h1 Testimonials
+.pageContent
+  h2 Many people are addicted to their phones! Why shouldn&apos;t you be?
+  iframe(src='https://www.youtube.com/embed/6_SUFvY80G4?si=BCxUe_7CD_r7o52H', title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share', allowfullscreen='')
+.reviews
+  .review
+    p.review-body
+      | I got my first phone from here. The big screen lets me watch Youtube confortably, wherever I am!
+    p.reviewer-name -Martha
+  .review
+    p.review-body I can now video call kids and see what they do
+    p.reviewer-name -Timmoth
+  .review
+    p.review-body Good
+    p.reviewer-name -user531
+  .review
+    p.review-body
+      | 0/5 stars! I was told the Gorilla glass 10 would resist any drops, but my screen is cracked from one small drop!
+    p.reviewer-name -Ann
+  .review
+    p.review-body
+      | It&apos;s great! now I can fit in with all the other people who walk and look at their phones
+    p.reviewer-name -Andrew
+  .review
+    p.review-body Very sturdy! I dropped it and it cracked the floor!
+    p.reviewer-name -J
