@@ -37,15 +37,15 @@ const confirmationSaleEvent = document.getElementById("confirmationRowDel");
 // set visability to visible or hidden depending on context of event
 function confirmRowDelete (text) {
     if (text === "") {
-        confirmationRowDelete.style.visibility = "hidden";
-        confirmationRowDelete.style.marginBottom   = "0";
-        confirmationRowDelete.style.marginTop = "0";
+        confirmationPost.style.visibility = "hidden";
+        confirmationPost.style.marginBottom   = "0";
+        confirmationPost.style.marginTop = "0";
     } else {
-        confirmationRowDelete.style.visibility = "visible";
-        confirmationRowDelete.style.marginBottom  = "1%";
-        confirmationRowDelete.style.marginTop = "1%";
+        confirmationPost.style.visibility = "visible";
+        confirmationPost.style.marginBottom  = "1%";
+        confirmationPost.style.marginTop = "1%";
     }
-    confirmationRowDelete.textContent = text;
+    confirmationPost.textContent = text;
 }
 
 function confirmSaleEvent (text) {

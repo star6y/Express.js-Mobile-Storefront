@@ -19,12 +19,12 @@ phones = ["iPhone 15 Pro Max", "iPhone 15", "S23 Ultra", "S23+", "OnePlus 12 5G"
 // This ensures that the user is Authorized. Can be called for specific endpoints to
 // protect them.
 function Authorizer(username, password) {
-	console.log(`\nuser : pass   ${username} : ${password} \n`)
-	const userMatches = basicAuth.safeCompare(username, 'admin')
-	const passwordMatches = basicAuth.safeCompare(password, 'password')
-	
-	// if false, we have an error handling middleware near the bottom to send a 403
-	return userMatches & passwordMatches
+  console.log(`\nuser : pass   ${username} : ${password} \n`)
+  const userMatches = basicAuth.safeCompare(username, 'admin')
+  const passwordMatches = basicAuth.safeCompare(password, 'password')
+
+  // if false, we have an error handling middleware near the bottom to send a 403
+  return userMatches & passwordMatches
 } // code seen on https://npmjs.com/package/express-basic-auth
 
 
@@ -46,36 +46,37 @@ app.get("/contact", (req, res) => {
 // certain code can be ran.
 app.post("/contact", async (req, res) => {
 
-	contactToPrint = JSON.stringify(req.body, null, 2)  // this is now a string
-	contact = req.body  // this is now an object, so we can use key "in" object. 
-	// Object can't be printed like string, need to do object.key
-  	data_recieved = true;
+  contactToPrint = JSON.stringify(req.body, null, 2)  // this is now a string
+  contact = req.body  // this is now an object, so we can use key "in" object. 
+  // Object can't be printed like string, need to do object.key
+  data_recieved = true;
 
-	if (Object.keys(contact).length === 0) {
-		data_recieved = false;
-	} else {
-		for (const key of goodKeys) {
-			if (!(key in contact)) {
-				data_recieved = false;
-			}
-		}
-	}
-	  
-	if (data_recieved){
-		contact.ID = row_id;
-		row_id++;
-		if (!contact['case']) {
-			contact['case'] = "No";
-		} else if (contact['case'] === 'on') {
-			contact['case'] = "Yes";
-		}
-		if (!phones.includes(contact.phone_model)) {
-			data_recieved = false;
-		}
-		if (typeof contact.name !== 'string' || contact.name.length === 0 || contact.name.length > 40) {
-			data_recieved = false;
-		}
-	}
+  if (Object.keys(contact).length === 0) {
+    data_recieved = false;
+  } else {
+    for (const key of goodKeys) {
+      if (!(key in contact)) {
+
+        data_recieved = false;
+      }
+    }
+  }
+  
+  if (data_recieved){
+    contact.ID = row_id;
+    row_id++;
+    if (!contact['case']) {
+      contact['case'] = "No";
+    } else if (contact['case'] === 'on') {
+        contact['case'] = "Yes";
+    }
+    if (!phones.includes(contact.phone_model)) {
+      data_recieved = false;
+    }
+    if (typeof contact.name !== 'string' || contact.name.length === 0 || contact.name.length > 40) {
+      data_recieved = false;
+    }
+  }
     
   // We will be checking the validity of the name, email, and date using regex.
 
@@ -110,22 +111,22 @@ app.post("/contact", async (req, res) => {
   }
   
   // now that we check the date validity, I want to make sure the year isn't too off
-	var date; 
-	if (data_recieved) {
+  var date; 
+  if (data_recieved) {
     date = contact.delivery_date.split("-");
     const year = parseInt(date[0], 10);
     if (year < 2023 || year > 2030) {
-    	data_recieved = false;
+      data_recieved = false;
     }
-}
+  }
 
-console.log(`\nGood data: ${data_recieved}\nRequest Body: ${contactToPrint}\n`);
-	if (data_recieved) {
-	    await data.addContact(contact.name, contact.email, contact.delivery_date, contact.phone_model, contact.case)
-    	res.status(201).render("postContactConfirmation.pug");
-	} else {
-    	res.status(400).render("postContactError.pug");
-  	}
+  console.log(`\nGood data: ${data_recieved}\nRequest Body: ${contactToPrint}\n`);
+  if (data_recieved) {
+    await data.addContact(contact.name, contact.email, contact.delivery_date, contact.phone_model, contact.case)
+    res.status(201).render("postContactConfirmation.pug");
+  } else {
+    res.status(400).render("postContactError.pug");
+  }
 });
 
 
@@ -135,22 +136,22 @@ app.get("/testimonies", (req, res) => {
 
 app.get("/admin/contactlog", basicAuth({ authorizer: Authorizer, challenge: true}), async (req, res) => {
   // we get all the contacts from the database
-    let contacts = await data.getContacts();
+  let contacts = await data.getContacts();
 
-    // mapping seems like less work than making a loop. Each contact object
-    // needs to be in the correct form to match the pug template. If the data
-    // in the mysql DB was null or similar, we'd just have the value be ""
-    contacts = contacts.map(contact => {
-        return {
-            "ID": contact.id,
-            "name": contact.name_ || "",
-            "email": contact.email || "",
-            "delivery_date": contact.delivery_date || "",
-            "phone_model": contact.phone_model || "",
-            "case": contact.case_ || ""
-        };
-    });
-    res.render("contactlog.pug", {contacts});
+  // mapping seems like less work than making a loop. Each contact object
+  // needs to be in the correct form to match the pug template. If the data
+  // in the mysql DB was null or similar, we'd just have the value be ""
+  contacts = contacts.map(contact => {
+    return {
+        "ID": contact.id,
+        "name": contact.name_ || "",
+        "email": contact.email || "",
+        "delivery_date": contact.delivery_date || "",
+        "phone_model": contact.phone_model || "",
+        "case": contact.case_ || ""
+    };
+  });
+  res.render("contactlog.pug", {contacts});
 });
 
 
@@ -161,11 +162,11 @@ app.use("/images", express.static("resources/images"))
 
 
 app.get("/api/sale", async (req, res)=>{
-    let recentSales = await data.getRecentSales();
-    let saleTXT = ""
+	let recentSales = await data.getRecentSales();
+	let saleTXT = ""
 
-    for (let sale of recentSales) {
-    // if the most recent sale is not NULL, break
+	for (let sale of recentSales) {
+		// if the most recent sale is not NULL, break
         if (sale.end_sale === null) {
             saleTXT = sale.description_;
             break; 
@@ -181,15 +182,15 @@ app.get("/api/sale", async (req, res)=>{
 
 // Show the 3 latest sales
 app.get("/admin/salelog", basicAuth({ authorizer: Authorizer, challenge: true}), async (req, res)=>{
-    let sales = await data.getRecentSales();
+	let sales = await data.getRecentSales();
 
     let recentSales = sales.map(sale => {
-        return {
-            "message": sale.description_,
-            "active": sale.end_sale === null ? 1 : 0
-        };
-    });
-    res.json(recentSales);
+		return {
+			"message": sale.description_,
+			"active": sale.end_sale === null ? 1 : 0
+		};
+	});
+  res.json(recentSales);
 })
 
 app.post("/api/sale", basicAuth({ authorizer: Authorizer, challenge: true}), async (req, res)=>{
@@ -232,7 +233,7 @@ app.use(function (err, req, res, next) {
 	if (err.name === 'UnauthorizedError') { 
 		res.status(403).json({ "message": "Forbidden access: better luck next time!" });
 	} else {
-    next(err); // let express handle the other errors
+      next(err); // let express handle the other errors
     }
 });
 

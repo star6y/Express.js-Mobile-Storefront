@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pirata+One');
+/* @import url('https://fonts.googleapis.com/css?family=Pirata+One'); */
 body {
     display: flex;
     margin: 0px;
@@ -27,32 +27,48 @@ em {
 strong {
     color: rgb(70, 85, 220);
 }
-.nav_links ul {
+.nav_links {
     background-color: rgb(231, 109, 78);
     display: flex;
     justify-content: space-evenly;
-
+    align-items: center;
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.nav_links li {
-    text-align: center;
-}
-li > a {
+
+.nav_links > a {
     display: block;
     padding: 10px;
     color: black;
+    text-decoration: none;
+    font-size: 18px;
 } 
-li > button {
-    margin-top: 15%;
+.nav_links button {
+    background-color: rgb(78, 109, 231);
+    border: none; 
+    color: white;
+    padding: 10px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 8px; 
+}
+.nav_links {
     text-align: center;
 }
-li > a:hover {
+.nav_links button:hover {
+    background-color:rgb(255, 172, 149); /* Darker green background on hover */
+}
+.nav_links > a:hover {
     background-color:rgb(255, 172, 149);
     border-radius: 30px;
 }
+
 /*  server  */
 img {
     border-radius: 30px;
