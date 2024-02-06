@@ -8,7 +8,7 @@ var connPool = mysql.createPool({
   host: "cse-mysql-classes-01.cse.umn.edu",// this will work
   user: "C4131F23U16",
   database: "C4131F23U16",
-  password: "306", // we really shouldn't be saving this here long-term -- and I probably shouldn't be sharing it with you...
+  password: "", // we really shouldn't be saving this here long-term -- and I probably shouldn't be sharing it with you...
 });
 
 // later you can use connPool.awaitQuery(query, data) -- it will return a promise for the query results.
